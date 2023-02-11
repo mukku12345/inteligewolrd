@@ -40,6 +40,8 @@ db.mongoose
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to my application." });
+  app.use(express.static(path.resolve(__dirname,'fronted','my-app','build')))
+  res.sendFile(path.resolve(__dirname,'fronted','my-app','build','index.html'))
 });
 
 require("./routes/routes")(app);
